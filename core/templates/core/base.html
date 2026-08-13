@@ -17,8 +17,11 @@
             <li class="nav-item"><a href="#" class="nav-link">Про нас</a></li> 
         </ul> 
     </header>
-    <div>
-    {% block content %}{% endblock %}
-    </div>
+    <main class="d-flex justify-content-center align-items-center min-vh-100">
+        {% block content %}{% endblock %}
+    </main>
+    <footer class="bg-black p-2 text-white">
+        <p>&copy; ItProger - Всі права захищені</p>
+    </footer>
 </body>
 </html>
