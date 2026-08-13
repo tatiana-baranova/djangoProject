@@ -1,9 +1,12 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 
 def home(request):
-    return HttpResponse('<h3>Hello</h3>')
+    data = {
+        'title': 'Головна сторінка'
+    }
+
+    return render(request, 'core/home.html', data)
 
 
 def services(request):
-    return HttpResponse('<h3>How are you</h3>')
+    return render(request, 'core/services.html', {'title': 'Послуги'})
