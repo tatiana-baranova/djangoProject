@@ -1,20 +1,23 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title%}{% endblock %}</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{%static 'core/main.css'%}">
+    <title>{% block title%}{% endblock %}</title>
+
 </head>
-<body class="bg-body-secondary">
+<body>
     <header class="d-flex flex-wrap justify-content-center bg-black py-3 mb-4 border-bottom"> 
         <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">  
             <span class="fs-1 fw-bold text-white ms-5">Simpy</span> 
         </a> 
         <ul class="nav nav-pills"> 
-            <li class="nav-item"><a href="{% url 'services'%}" class="nav-link">Послуги</a></li> 
-            <li class="nav-item"><a href="#" class="nav-link">Контакти</a></li> 
-            <li class="nav-item"><a href="#" class="nav-link">Про нас</a></li> 
+            <li class="nav-item"><a href="{% url 'services'%}" class="nav-link text-white">Послуги</a></li> 
+            <li class="nav-item"><a href="#" class="nav-link text-white">Контакти</a></li> 
+            <li class="nav-item"><a href="#" class="nav-link text-white">Про нас</a></li> 
         </ul> 
     </header>
     <main class="d-flex justify-content-center align-items-center min-vh-100">
