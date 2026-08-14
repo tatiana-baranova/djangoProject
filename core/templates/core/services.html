@@ -3,16 +3,21 @@
 <title>{% block title%} {{ title }} {% endblock %}</title>
 
 {% block content %} 
-    {% for post in news %}
-    <div class="alert alert-light">
-        <h1>{{post.title}}</h1>
-        <p>{{post.text}}</p>
-        <span class="text-muted">Опубліковано: {{post.date|date:'j F  Y, час: H:i:s'}}</span>
-        {% if post.author %}
-            <p>Автор: <mark>{{post.author}}</mark></p>
-        {% else %}
-            <p>Автор: <mark>Адмін</mark></p>
-            {% endif%}
+    <div class="w-75 d-flex justify-content-center flex-column align-items-center m-auto p-5">
+        <h1 class="fs-1 mb-5">Сторінка з послугами</h1>
+        <ul class="d-flex justify-content-center flex-row align-items-stretch p-2">
+            <li class="item-services">
+                <h3 class="text-center fs-4 mb-2">Швидко</h3>
+                <p class="text-center fs-6 p-2">Ми цінуємо ваш час, тому запускаємо проекти в найкоротші терміни без зайвої бюрократії. Швидкість для нас — це не поспіх, а максимальна ефективність роботи.</p>
+            </li>
+            <li class="item-services">
+                <h3 class="text-center fs-4 mb-2">Дешево</h3>
+                <p class="text-center fs-6 p-2">Якісні рішення можуть бути доступними завдяки розумній оптимізації витрат та відсутності прихованих платежів. Наша мета — забезпечити вам максимальну вигоду за мінімальних фінансових вкладень.</p>
+            </li>
+            <li class="item-services">
+                <h3 class="text-center fs-4 mb-2">Якісно</h3>
+                <p class="text-center fs-6 p-2">Ми не йдемо на компроміси, коли йдеться про надійність та бездоганний вигляд вашого продукту. Ви отримуєте стабільний, безпечний та довговічний результат, яким будете пишатися.</p>
+            </li>
+        </ul>
     </div>
-    {% endfor %}
 {% endblock %}

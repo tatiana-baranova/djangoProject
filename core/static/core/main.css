@@ -32,3 +32,6 @@ img {
 button {
     cursor: pointer;
 }
+.item-services{
+    padding: 8px;
+}

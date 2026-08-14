@@ -10,7 +10,8 @@ def home(request):
 
 def services(request):
     data = {
-        'news': News.objects.all()
+        'news': News.objects.all(),
+        'title': 'Послуги'
     }
 
     return render(request, 'core/services.html', data)
