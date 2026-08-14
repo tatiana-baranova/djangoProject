@@ -1,5 +1,5 @@
 from django.shortcuts import render
-
+from .models import News
 def home(request):
     data = {
         'title': 'Головна сторінка'
@@ -9,4 +9,8 @@ def home(request):
 
 
 def services(request):
-    return render(request, 'core/services.html', {'title': 'Послуги'})
+    data = {
+        'news': News.objects.all()
+    }
+
+    return render(request, 'core/services.html', data)

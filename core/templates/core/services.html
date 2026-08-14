@@ -1,5 +1,18 @@
 {% extends "core/base.html" %}
 
-<title>{% block title%}{% endblock %}</title>
+<title>{% block title%} {{ title }} {% endblock %}</title>
 
-{% block content %} <h1>{{title}}</h1>{% endblock %}
+{% block content %} 
+    {% for post in news %}
+    <div class="alert alert-light">
+        <h1>{{post.title}}</h1>
+        <p>{{post.text}}</p>
+        <span class="text-muted">Опубліковано: {{post.date|date:'j F  Y, час: H:i:s'}}</span>
+        {% if post.author %}
+            <p>Автор: <mark>{{post.author}}</mark></p>
+        {% else %}
+            <p>Автор: <mark>Адмін</mark></p>
+            {% endif%}
+    </div>
+    {% endfor %}
+{% endblock %}
