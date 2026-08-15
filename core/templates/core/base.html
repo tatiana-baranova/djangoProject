@@ -14,14 +14,28 @@
         <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">  
             <span class="fs-1 fw-bold text-white ms-5">Simpy</span> 
         </a> 
-        <ul class="nav nav-pills"> 
+        <ul class="nav nav-pills m-3"> 
+            {% comment %} <li class="nav-item"><a href="{% url 'reg'%}" class="nav-link text-white">Реєстрація</a></li>  {% endcomment %}
             <li class="nav-item"><a href="{% url 'services'%}" class="nav-link text-white">Послуги</a></li> 
             <li class="nav-item"><a href="#" class="nav-link text-white">Контакти</a></li> 
             <li class="nav-item"><a href="#" class="nav-link text-white">Про нас</a></li> 
         </ul> 
+        <div class="text-end m-3">
+            <button type="button" class="btn btn-outline-light me-2">Вхід</button>
+            <a href="{% url 'reg'%}"><button type="button" class="btn btn-warning">Реєстрація</button></a>
+            
+        </div>
     </header>
-    <main class="d-flex justify-content-center align-items-center min-vh-100">
-        {% block content %}{% endblock %}
+    <main>
+        {% if messages %}
+            {% for mess in messages %}
+            <div class="alert alert-success w-25 m-2">{{mess}}</div>
+            {% endfor %}
+        {%endif%}
+        <div class="d-flex justify-content-center align-items-center min-vh-100">
+        {% block content %}
+        {% endblock %}
+        </div>
     </main>
     <footer class="bg-black p-2 text-white">
         <p>&copy; ItProger - Всі права захищені</p>

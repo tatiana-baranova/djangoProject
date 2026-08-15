@@ -35,3 +35,18 @@ button {
 .item-services{
     padding: 8px;
 }
+.form-register{
+    padding: 20px;
+    background-color: rgba(214, 214, 193, 0.535);
+    border: 1px solid #fafafa;
+    margin-top: 20px;
+}
+
+.form-register .helptext{
+    color: #8f8f8f;
+
+}
+.form-register ul.errorlist{
+    color: #ca5858;
+    font-weight: bold;
+}
