@@ -3,10 +3,12 @@
 {% block title%} Профіль користувача {% endblock %}
 
 {% block content %} 
-    <div class="w-100 d-flex justify-content-center flex-column align-items-center m-auto p-5">
-        <h1 class="mb-3 fs-1 text-warning-emphasis">Профіль користувача</h1>
-        <p> {{user.username}}</p>
-        <p> {{user.email}}</p>
-        </form>
+    <div class="w-100 d-flex justify-content-center flex-column align-items-center align-self-start m-2 p-4 dashboard">
+        <h1 class="mb-3 fs-2 text-warning-emphasis">Профіль користувача</h1>
+        <img src="{{user.profile.img.url}}" alt="{{user.username}}">
+        <p>
+            <span class="username">@{{user.username}}</span><br>
+            {{user.email}}
+        </p>
     </div>
 {% endblock %}
