@@ -50,6 +50,9 @@ button {
     border-radius: 5px;
     padding: 2%;
 }
+.form-exit{
+    display: inline-block;
+}
 
 .form-register .helptext{
     color: #8f8f8f;
