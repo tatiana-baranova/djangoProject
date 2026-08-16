@@ -9,6 +9,8 @@
             {% csrf_token %}
             {{ form.as_p }}
             <button class="mt-2 btn btn-warning" type="submit">Реєстрація</button>
+            <hr>
+            <p>Зареєстровані?<a href="{% url 'user' %}">Вхід в особистий профіль</a> </p>
         </form>
     </div>
 {% endblock %}

@@ -40,6 +40,15 @@ button {
     background-color: rgba(214, 214, 193, 0.535);
     border: 1px solid #fafafa;
     margin-top: 20px;
+    
+}
+.form-register.auth input{
+    display: block;
+    width: 90%;
+    margin-top: 5px;
+    border: 1px solid silver;
+    border-radius: 5px;
+    padding: 2%;
 }
 
 .form-register .helptext{
