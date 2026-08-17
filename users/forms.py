@@ -56,6 +56,21 @@ class ProfileImageForm(forms.ModelForm):
         widget=forms.FileInput()
         )
 
+    gender = forms.ChoiceField(
+        label='Стать',
+        choices=[
+            ('male', 'Чоловіча'),
+            ('female', 'Жіноча'),
+        ],
+        widget=forms.Select(attrs={'class': 'form-control'})
+        )
+
+    email_notifications = forms.BooleanField(
+        label='Я погоджуюсь отримувати поштові повідомлення',
+        required=False
+    )
+
+
     class Meta:
         model = Profile
-        fields = ['img']
+        fields = ['img', 'gender', 'email_notifications']
