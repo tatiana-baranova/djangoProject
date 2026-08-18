@@ -31,6 +31,7 @@ class ShowNewsView(ListView):
     template_name = 'core/articles.html'
     context_object_name = 'news'
     ordering = ['-date']
+    paginate_by = 4
 
 
     def get_context_data(self, **kwargs):

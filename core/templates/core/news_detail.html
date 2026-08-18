@@ -10,11 +10,13 @@
         <img class="card-author-md rounded-5  m-2" src="{{post.author.profile.img.url}}" alt="{{post.author.username}}">
         <div class="d-flex flex-column news-user-data">
             <h2 class="fs-3">{{post.title}}</h2>
-            <p>{{post.text}}</p>
+            <p>{{post.text|safe}}</p>
             <div>
                 <span class="text-muted">Опубліковано: {{post.date|date:'d E Y року в H:i'}}</span>
                 <p>Автор: <mark>{{ post.author }} </mark></p>
             </div>
+
+            {% if user == object.author %}
             <div d-flex flex-row justify-content-center>
                 <a href="{% url 'news_update' object.pk %}" class="button-update mt-2 btn btn-warning">
                 Оновити статтю
@@ -23,6 +25,7 @@
                 Видалити статтю
             </a>
             </div>
+            {% endif %}
             
         </div>
     </div>
