@@ -1,0 +1,23 @@
+{% extends "core/base.html" %}
+
+{% block title%} {{ title }} {% endblock %}
+
+{% block content %} 
+    {% for post in news %}
+    <div class="w-50 d-flex flex-row justify-content-start alert alert-light">
+        <img class="card-author rounded-5 w-25 m-2" src="{{post.author.profile.img.url}}" alt="{{post.author.username}}">
+        
+
+        <div class="d-flex flex-column news-user-data">
+            <h1>{{post.title}}</h1>
+            <p>{{post.text}}</p>
+            <div>
+                <span class="text-muted">Опубліковано: {{post.date|date:'d E Y року в H:i'}}</span>
+                <p>Автор: <mark>{{ post.author }} </mark></p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+
+{% endblock %}

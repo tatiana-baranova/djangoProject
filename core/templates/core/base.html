@@ -17,7 +17,7 @@
         <ul class="nav nav-pills m-3"> 
             {% comment %} <li class="nav-item"><a href="{% url 'reg'%}" class="nav-link text-white">Реєстрація</a></li>  {% endcomment %}
             <li class="nav-item"><a href="{% url 'services'%}" class="nav-link text-white">Послуги</a></li> 
-            <li class="nav-item"><a href="#" class="nav-link text-white">Контакти</a></li> 
+            <li class="nav-item"><a href="{% url 'articles'%}" class="nav-link text-white">Статті</a></li> 
             <li class="nav-item"><a href="#" class="nav-link text-white">Про нас</a></li> 
         </ul> 
         <div class="text-end m-3">
@@ -39,7 +39,7 @@
             <div class="alert alert-success w-25 m-2">{{mess}}</div>
             {% endfor %}
         {%endif%}
-        <div class="d-flex justify-content-center align-items-center min-vh-100">
+        <div class="d-flex justify-content-center flex-column align-items-center min-vh-100">
         {% block content %}
         {% endblock %}
         </div>
