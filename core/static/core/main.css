@@ -42,7 +42,8 @@ button {
     margin-top: 20px;
     
 }
-.form-register.auth input{
+.form-register.auth input,
+.form-register.auth textarea {
     display: block;
     width: 90%;
     margin-top: 5px;
@@ -80,7 +81,40 @@ button {
     font-weight: bold;
     color: #424242;
 }
-.card-author{
-    width: 100px;
-    height: 100px;
+
+.card-author-sm {
+    width: 45px;
+    height: 45px;
+    object-fit: cover;
+}
+.card-author-md {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+.move-left {
+    position: relative;
+    right: 280px;
+    background-color: rgba(238, 228, 132, 0.835);
+}
+
+.move-left:hover{
+    border: 3px solid rgba(238, 228, 132, 0.835);
+}
+
+.move-left-but{
+    position: relative;
+    right: 250px;
+    background-color: rgba(238, 228, 132, 0.835);
+}
+
+.move-left-but:hover{
+    border: 3px solid rgba(238, 228, 132, 0.835);
+}
+
+.button-update{
+    width: 140px;
+    margin-right: 10px;
+    padding: 6px 8px;
+
 }
