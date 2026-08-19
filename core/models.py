@@ -27,3 +27,13 @@ class News(models.Model):
     class Meta:
         verbose_name = 'Новина'
         verbose_name_plural = 'Новини'
+
+
+class ContactMessage(models.Model):
+    subject = models.CharField('Тема листа',max_length=200)
+    email = models.EmailField('Електрона адреса')
+    message = models.TextField('Текст повідомлення')
+    created_at = models.DateTimeField('Дата відправлення', auto_now_add=True)
+
+    def __str__(self):
+        return self.subject
