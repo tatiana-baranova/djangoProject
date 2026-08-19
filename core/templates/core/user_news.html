@@ -3,7 +3,11 @@
 {% block title%} {{ title }} {% endblock %}
 
 {% block content %} 
-<a href="{% url 'news_add'%}" class="move-left btn m-2">Додати статтю</a>
+    <a href="{% url 'articles' %}" class="move-left m-2 btn">
+        ← Назад до статей
+    </a>
+<h2>Всі статті автора {{ view.kwargs.username }}</h2>
+<h4>Кількість: {{ page_obj.paginator.count }}</h4>
     {% for post in news %}
     <div class="w-50 d-flex flex-row justify-content-start alert alert-light">
         <img class="card-author-md rounded-5 object-fit-cover m-2" src="{{post.author.profile.img.url}}" alt="{{post.author.username}}">
@@ -14,7 +18,7 @@
             <p>{{post.text|striptags|truncatechars:300}}</p>
             <div>
                 <span class="text-muted">Опубліковано: {{post.date|date:'d E Y року в H:i'}}</span>
-                <p>Автор: <a href="{% url 'user_news' post.author %}">{{ post.author }} </a></p>
+                <p>Автор: <mark>{{ post.author }} </mark></p>
                 <a href="{% url 'news_detail' post.id %}" class="mt-2 btn btn-outline-warning">Детально</a>
             </div>
         </div>

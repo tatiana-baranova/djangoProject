@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
+from django.contrib.auth.models import User
 from .models import News
 from django.views.generic import (
     ListView, 
@@ -33,13 +34,27 @@ class ShowNewsView(ListView):
     ordering = ['-date']
     paginate_by = 4
 
-
     def get_context_data(self, **kwargs):
         ctx = super().get_context_data(**kwargs)
         ctx['title'] = 'Сторінка з статтями'
         return ctx
 
 
+class UserAllNewsView(ListView): 
+    model = News
+    template_name = 'core/user_news.html'
+    context_object_name = 'news'
+    paginate_by = 5
+
+    def get_queryset(self):
+            user = get_object_or_404(User, username=self.kwargs['username'])
+            return News.objects.filter(author=user).order_by('-date')
+    
+    def get_context_data(self, **kwargs):
+        ctx = super().get_context_data(**kwargs)
+        ctx['title'] = f'Статті користувача: {self.kwargs.get('username')}'
+
+        return ctx 
 
 class NewsDetailView(DetailView):
     model = News
