@@ -31,7 +31,7 @@ class News(models.Model):
 
 class ContactMessage(models.Model):
     subject = models.CharField('Тема листа',max_length=200)
-    email = models.EmailField('Електрона адреса')
+    email = models.EmailField('Ваша електронна адреса')
     message = models.TextField('Текст повідомлення')
     created_at = models.DateTimeField('Дата відправлення', auto_now_add=True)
 

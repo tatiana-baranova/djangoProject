@@ -1,15 +1,18 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.models import User
-from .models import News
+from .models import News, ContactMessage
 from django.views.generic import (
     ListView, 
     DetailView, 
     CreateView, 
     UpdateView,
-    DeleteView
+    DeleteView,
+    FormView
     )
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-
+from django.core.mail import send_mail
+from django.contrib import messages
+from django.urls import reverse_lazy
 
 def home(request):
     data = {
@@ -121,3 +124,26 @@ class DeleteNewsView(LoginRequiredMixin,UserPassesTestMixin, DeleteView):
         if self.request.user == news.author:
             return True
         return False
+
+
+class ContactView(CreateView):
+    model = ContactMessage
+    template_name = 'core/contacts.html'
+    success_url = reverse_lazy('profile')
+    fields = ['subject', 'email', 'message']
+
+    def form_valid(self, form):
+        contact = form.save()
+
+        send_mail(
+            subject=contact.subject,
+            message=contact.message,
+            from_email=contact.email,
+            recipient_list=['tetiana.baranova18@gmail.com'],
+        )
+        messages.success(
+            self.request,
+            'Повідомлення успішно відправлено!'
+        )
+        return super().form_valid(form)
+    
