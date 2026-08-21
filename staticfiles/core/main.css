@@ -1,0 +1,120 @@
+body{
+    background-color: rgba(166, 164, 164, 0.623);
+}
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+}
+
+
+a {
+    text-decoration: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+button {
+    cursor: pointer;
+}
+.item-services{
+    padding: 8px;
+}
+.form-register{
+    padding: 20px;
+    background-color: rgba(214, 214, 193, 0.535);
+    border: 1px solid #fafafa;
+    margin-top: 20px;
+    
+}
+.form-register.auth input,
+.form-register.auth textarea {
+    display: block;
+    width: 90%;
+    margin-top: 5px;
+    border: 1px solid silver;
+    border-radius: 5px;
+    padding: 2%;
+}
+.form-exit{
+    display: inline-block;
+}
+
+.form-register .helptext{
+    color: #8f8f8f;
+
+}
+.form-register ul.errorlist{
+    color: #ca5858;
+    font-weight: bold;
+}
+
+.dashboard{
+    border-bottom: 1px solid rgb(158 158 158);
+    
+}
+
+.dashboard img{
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    margin-right: 15px;
+}
+
+
+.dashboard .username{
+    font-weight: bold;
+    color: #424242;
+}
+
+.card-author-sm {
+    width: 45px;
+    height: 45px;
+    object-fit: cover;
+}
+.card-author-md {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+.move-left {
+    position: relative;
+    right: 280px;
+    background-color: rgba(238, 228, 132, 0.835);
+}
+
+.move-left:hover{
+    border: 3px solid rgba(238, 228, 132, 0.835);
+}
+
+.move-left-but{
+    position: relative;
+    right: 250px;
+    background-color: rgba(238, 228, 132, 0.835);
+}
+
+.move-left-but:hover{
+    border: 3px solid rgba(238, 228, 132, 0.835);
+}
+
+.button-update{
+    width: 140px;
+    margin-right: 10px;
+    padding: 6px 8px;
+
+}
