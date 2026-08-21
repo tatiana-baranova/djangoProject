@@ -15,7 +15,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, reverse_lazy
 from users import views as userViews
 from django.contrib.auth import views as authViews
 from django.conf import settings
@@ -27,7 +27,9 @@ urlpatterns = [
     path('profile/', userViews.profile, name='profile'),
     path('user/', authViews.LoginView.as_view(template_name='users/user.html'), name='user'),
     path('exit/', authViews.LogoutView.as_view(template_name='users/exit.html'), name='exit'),
-    path('pass-reset/', authViews.PasswordResetView.as_view(template_name='users/pass_reset.html', success_url='/pass-reset/done/'), name='pass_reset'),
+
+    path('pass-reset/', authViews.PasswordResetView.as_view(template_name='users/pass_reset.html', email_template_name='users/password_reset_email.html',success_url=reverse_lazy('password_reset_done') ), name='pass_reset'),
+
     path('pass-reset/done/', authViews.PasswordResetDoneView.as_view(template_name='users/pass_reset_done.html'), name='password_reset_done'),
     path('pass-reset-confirm/<uidb64>/<token>/',authViews.PasswordResetConfirmView.as_view(template_name='users/pass_reset_confirm.html'),
     name='password_reset_confirm'),

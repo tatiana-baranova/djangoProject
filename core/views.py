@@ -13,6 +13,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.core.mail import send_mail
 from django.contrib import messages
 from django.urls import reverse_lazy
+from django.conf import settings
+
 
 def home(request):
     data = {
@@ -137,9 +139,9 @@ class ContactView(CreateView):
 
         send_mail(
             subject=contact.subject,
-            message=contact.message,
-            from_email=contact.email,
-            recipient_list=['tetiana.baranova18@gmail.com'],
+            message=f"""Email користувача: {contact.email} Повідомлення: {contact.message}""",
+            from_email=settings.DEFAULT_FROM_EMAIL,
+            recipient_list=['sinovichtanya@ukr.net'],
         )
         messages.success(
             self.request,

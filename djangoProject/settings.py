@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 
 from pathlib import Path
 import os
-from pathlib import Path
 from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -132,4 +131,11 @@ LOGIN_URL = 'user'
 MEDIA_URL = '/pictures/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'pictures')
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+EMAIL_HOST = os.getenv('BREVO_SMTP_HOST')
+EMAIL_PORT = int(os.getenv('BREVO_SMTP_PORT'))
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = os.getenv('BREVO_SMTP_LOGIN')
+EMAIL_HOST_PASSWORD = os.getenv('BREVO_SMTP_KEY')
+DEFAULT_FROM_EMAIL = os.getenv('BREVO_FROM_EMAIL')
